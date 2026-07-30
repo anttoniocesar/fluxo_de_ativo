@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Painel de acompanhamento do fluxo de ativos da Trefilaria Sabará">
+  <title>Sabará Trefilaria | Mapa de Processos e Ativos</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#visao-geral" data-route="overview" aria-label="Ir para a visão geral">
+      <span class="brand-icon" aria-hidden="true">▥</span>
+      <span><strong>SABARÁ</strong><b>TREFILARIA</b><small>MAPA DE PROCESSOS E ATIVOS</small></span>
+    </a>
+    <section class="headline-stats" aria-label="Indicadores gerais">
+      <div><span>◌</span><small>MACROPROCESSOS</small><strong>4</strong></div>
+      <div><span>♙</span><small>ÁREAS</small><strong>10</strong></div>
+      <div><span>⚙</span><small>PRINCIPAIS ATIVOS</small><strong>68</strong></div>
+      <div><span>♧</span><small>COLABORADORES</small><strong>~ 480</strong></div>
+      <div><span>▥</span><small>CAPACIDADE ANUAL</small><strong>~ 420 mil t</strong></div>
+      <div><span>▤</span><small>PRODUTOS</small><strong>Barras de Aço</strong></div>
+    </section>
+    <div class="update"><small>ÚLTIMA ATUALIZAÇÃO</small><strong>30/07/2026</strong><small>VERSÃO</small><strong>1.0</strong></div>
+  </header>
+
+  <div class="app-shell">
+    <aside class="sidebar">
+      <p class="section-label">NAVEGAÇÃO</p>
+      <nav class="main-nav" aria-label="Navegação principal">
+        <button class="nav-item active" data-route="overview"><span>▣</span> VISÃO GERAL</button>
+        <button class="nav-item" data-route="processes"><span>⌘</span> PROCESSOS</button>
+        <button class="nav-item" data-route="assets"><span>♙</span> ATIVOS</button>
+        <button class="nav-item" data-route="documents"><span>▤</span> DOCUMENTOS</button>
+        <button class="nav-item" data-route="photos"><span>▧</span> FOTOS</button>
+      </nav>
+      <p class="section-label plant-label">ESTRUTURA DA PLANTA</p>
+      <div class="tree" role="tree" aria-label="Estrutura da planta">
+        <button class="tree-root" aria-expanded="true">⌄ SABARÁ</button>
+        <div class="tree-children">
+          <button class="tree-parent active" aria-expanded="true">⌄ TREFILARIA</button>
+          <div class="tree-leaves">
+            <button data-area="Fábrica de Barras Industriais I">FÁBRICA DE BARRAS INDUSTRIAIS I</button>
+            <button data-area="Fábrica de Barras Industriais II">FÁBRICA DE BARRAS INDUSTRIAIS II</button>
+            <button data-area="Logística Fábrica 1">LOGÍSTICA FÁBRICA 1</button>
+            <button data-area="Logística Fábrica 2">LOGÍSTICA FÁBRICA 2</button>
+            <button data-area="Gestão da Qualidade">GESTÃO DA QUALIDADE</button>
+          </div>
+        </div>
+      </div>
+      <div class="tip"><span>?</span><p>Clique em um macroprocesso para navegar pelos processos e ativos relacionados.</p></div>
+    </aside>
+
+    <main id="main-content" tabindex="-1">
+      <section id="visao-geral" class="page active" data-page="overview">
+        <div class="page-heading"><div><p>PAINEL OPERACIONAL</p><h1>MACROPROCESSO – TREFILARIA SABARÁ</h1><span>Visão integrada dos principais macroprocessos que compõem a operação.</span></div><button class="primary-action" id="newAsset">+ NOVO ATIVO</button></div>
+
+        <section class="process-grid" aria-label="Macroprocessos">
+          <button class="process-card blue" data-process="Logística / Recebimento"><i>1</i><div><h2>LOGÍSTICA / RECEBIMENTO</h2><p>Recebimento, movimentação e armazenagem de matéria-prima e apoio à produção.</p></div><b>→</b></button>
+          <button class="process-card green" data-process="Fabricação de Barras Industriais"><i>2</i><div><h2>FABRICAÇÃO DE BARRAS INDUSTRIAIS</h2><p>Processos de trefilação, endireitamento, corte, acabamentos e movimentação interna.</p></div><b>→</b></button>
+          <button class="process-card purple" data-process="Gestão da Qualidade"><i>3</i><div><h2>GESTÃO DA QUALIDADE</h2><p>Ensaios, análises e controle da qualidade dos produtos e processos.</p></div><b>→</b></button>
+          <button class="process-card orange" data-process="Expedição"><i>4</i><div><h2>EXPEDIÇÃO</h2><p>Conferência, armazenagem de produto acabado e expedição para o cliente.</p></div><b>→</b></button>
+        </section>
+
+        <section class="workspace">
+          <div class="panel asset-panel">
+            <div class="panel-title"><div><p>ATIVOS EM DESTAQUE</p><h2>Acompanhamento da operação</h2></div><label class="search"><span>⌕</span><input id="assetSearch" type="search" placeholder="Buscar ativo..." aria-label="Buscar ativo"></label></div>
+            <div class="filters" role="group" aria-label="Filtrar ativos"><button class="active" data-filter="Todos">Todos <span>6</span></button><button data-filter="Operando">Operando <span>4</span></button><button data-filter="Atenção">Atenção <span>1</span></button><button data-filter="Parado">Parado <span>1</span></button></div>
+            <div class="table-wrap"><table><thead><tr><th>ATIVO</th><th>LOCALIZAÇÃO</th><th>TIPO</th><th>STATUS</th><th></th></tr></thead><tbody id="assetRows"></tbody></table></div>
+          </div>
+          <aside class="right-column">
+            <section class="panel indicators"><div class="panel-title"><div><p>INDICADORES DA UNIDADE</p><h2>Desempenho atual</h2></div><span class="live-dot">AO VIVO</span></div><div class="metric"><span>Produção mensal</span><strong>32.480 <small>t</small></strong><em>↑ 4,2%</em></div><div class="metric"><span>OEE</span><strong>87,5 <small>%</small></strong><em>↑ 1,8%</em></div><div class="metric"><span>Disponibilidade</span><strong>92,3 <small>%</small></strong><em>↑ 0,7%</em></div><div class="metric warning"><span>Paradas não planejadas</span><strong>14 <small>h</small></strong><em>↓ 2h</em></div></section>
+            <section class="panel quick-links"><div class="panel-title"><div><p>ACESSO RÁPIDO</p><h2>Documentos e referências</h2></div></div><button data-doc="Layout da Planta">Layout da Planta <span>›</span></button><button data-doc="Fluxogramas">Fluxogramas <span>›</span></button><button data-doc="Manuais de Equipamentos">Manuais de Equipamentos <span>›</span></button><button data-doc="Planos de Manutenção">Planos de Manutenção <span>›</span></button></section>
+          </aside>
+        </section>
+      </section>
+
+      <section class="page placeholder-page" data-page="processes"><h1>Processos</h1><p>Selecione um macroprocesso para consultar suas etapas.</p><div id="processList" class="catalog-grid"></div></section>
+      <section class="page placeholder-page" data-page="assets"><h1>Ativos</h1><p>Consulte os ativos cadastrados e o status da operação.</p><div id="assetCatalog" class="catalog-grid"></div></section>
+      <section class="page placeholder-page" data-page="documents"><h1>Documentos</h1><p>Documentos e referências vinculados à planta.</p><div class="empty-state">▤<strong>Biblioteca de documentos</strong><span>Use os atalhos da visão geral para abrir uma categoria.</span></div></section>
+      <section class="page placeholder-page" data-page="photos"><h1>Fotos</h1><p>Registros fotográficos dos ativos e áreas.</p><div class="empty-state">▧<strong>Nenhuma foto adicionada</strong><span>Os registros aparecerão aqui.</span></div></section>
+    </main>
+  </div>
+
+  <footer><span>FONTE: Levantamento de Campo &nbsp;|&nbsp; SAP &nbsp;|&nbsp; Equipes Operacionais</span><span>Confidencial &nbsp;|&nbsp; USO INTERNO</span></footer>
+
+  <dialog id="assetDialog"><form method="dialog"><button class="close" aria-label="Fechar">×</button><p class="eyebrow">CADASTRO</p><h2>Novo ativo</h2><label>Nome do ativo<input id="newAssetName" required placeholder="Ex.: Trefiladora 03"></label><label>Localização<select id="newAssetLocation"><option>Fábrica de Barras Industriais I</option><option>Fábrica de Barras Industriais II</option><option>Logística Fábrica 1</option><option>Gestão da Qualidade</option></select></label><label>Tipo<select id="newAssetType"><option>Equipamento Principal</option><option>Equipamento Auxiliar</option><option>Infraestrutura / Apoio</option></select></label><menu><button value="cancel">Cancelar</button><button id="saveAsset" value="default" class="primary-action">Salvar ativo</button></menu></form></dialog>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
