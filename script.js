@@ -18,6 +18,18 @@ let selectedFilter = 'Todos';
 const rows = document.querySelector('#assetRows');
 const catalog = document.querySelector('#assetCatalog');
 const toast = document.querySelector('#toast');
+const sidebar = document.querySelector('#sidebar');
+const sidebarToggle = document.querySelector('#sidebarToggle');
+
+function setSidebarCollapsed(collapsed) {
+  sidebar.classList.toggle('collapsed', collapsed);
+  sidebarToggle.setAttribute('aria-expanded', String(!collapsed));
+  const action = collapsed ? 'Expandir' : 'Recolher';
+  sidebarToggle.setAttribute('aria-label', `${action} navegação`);
+  sidebarToggle.title = `${action} navegação`;
+}
+
+sidebarToggle.addEventListener('click', () => setSidebarCollapsed(!sidebar.classList.contains('collapsed')));
 
 function showToast(message) {
   toast.textContent = message;

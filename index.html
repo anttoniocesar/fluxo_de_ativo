@@ -25,14 +25,17 @@
   </header>
 
   <div class="app-shell">
-    <aside class="sidebar">
-      <p class="section-label">NAVEGAÇÃO</p>
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-heading">
+        <p class="section-label">NAVEGAÇÃO</p>
+        <button class="sidebar-toggle" id="sidebarToggle" type="button" aria-controls="sidebar" aria-expanded="true" aria-label="Recolher navegação" title="Recolher navegação"><span aria-hidden="true">‹</span></button>
+      </div>
       <nav class="main-nav" aria-label="Navegação principal">
-        <button class="nav-item active" data-route="overview"><span>▣</span> VISÃO GERAL</button>
-        <button class="nav-item" data-route="processes"><span>⌘</span> PROCESSOS</button>
-        <button class="nav-item" data-route="assets"><span>♙</span> ATIVOS</button>
-        <button class="nav-item" data-route="documents"><span>▤</span> DOCUMENTOS</button>
-        <button class="nav-item" data-route="photos"><span>▧</span> FOTOS</button>
+        <button class="nav-item active" data-route="overview" title="Visão geral"><span aria-hidden="true">▣</span><span class="nav-text">VISÃO GERAL</span></button>
+        <button class="nav-item" data-route="processes" title="Processos"><span aria-hidden="true">⌘</span><span class="nav-text">PROCESSOS</span></button>
+        <button class="nav-item" data-route="assets" title="Ativos"><span aria-hidden="true">♙</span><span class="nav-text">ATIVOS</span></button>
+        <button class="nav-item" data-route="documents" title="Documentos"><span aria-hidden="true">▤</span><span class="nav-text">DOCUMENTOS</span></button>
+        <button class="nav-item" data-route="photos" title="Fotos"><span aria-hidden="true">▧</span><span class="nav-text">FOTOS</span></button>
       </nav>
       <p class="section-label plant-label">ESTRUTURA DA PLANTA</p>
       <div class="tree" role="tree" aria-label="Estrutura da planta">
