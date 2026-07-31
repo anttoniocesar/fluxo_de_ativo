@@ -20,6 +20,8 @@ const catalog = document.querySelector('#assetCatalog');
 const toast = document.querySelector('#toast');
 const sidebar = document.querySelector('#sidebar');
 const sidebarToggle = document.querySelector('#sidebarToggle');
+const plantTreeToggle = document.querySelector('#plantTreeToggle');
+const plantTreeAreas = document.querySelector('#plantTreeAreas');
 
 function setSidebarCollapsed(collapsed) {
   sidebar.classList.toggle('collapsed', collapsed);
@@ -30,6 +32,12 @@ function setSidebarCollapsed(collapsed) {
 }
 
 sidebarToggle.addEventListener('click', () => setSidebarCollapsed(!sidebar.classList.contains('collapsed')));
+
+plantTreeToggle.addEventListener('click', () => {
+  const expanded = plantTreeAreas.hidden;
+  plantTreeAreas.hidden = !expanded;
+  plantTreeToggle.setAttribute('aria-expanded', String(expanded));
+});
 
 function showToast(message) {
   toast.textContent = message;
