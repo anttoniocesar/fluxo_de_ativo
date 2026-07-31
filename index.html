@@ -39,16 +39,16 @@
       </nav>
       <p class="section-label plant-label">ESTRUTURA DA PLANTA</p>
       <div class="tree" role="tree" aria-label="Estrutura da planta">
-        <button class="tree-root" aria-expanded="true">⌄ TREFILARIA SABARÁ</button>
-        <div class="tree-children">
-          <button class="tree-parent active" aria-expanded="true">⌄ FLUXO DO ATIVO</button>
-          <div class="tree-leaves">
-            <button data-area="Fábrica de Barras Industriais I">FÁBRICA DE BARRAS INDUSTRIAIS I</button>
-            <button data-area="Fábrica de Barras Industriais II">FÁBRICA DE BARRAS INDUSTRIAIS II</button>
-            <button data-area="Logística Fábrica 1">LOGÍSTICA FÁBRICA 1</button>
-            <button data-area="Logística Fábrica 2">LOGÍSTICA FÁBRICA 2</button>
-            <button data-area="Gestão da Qualidade">GESTÃO DA QUALIDADE</button>
-          </div>
+        <button class="tree-parent" id="plantTreeToggle" type="button" aria-expanded="false" aria-controls="plantTreeAreas">
+          <span class="tree-indicator" aria-hidden="true"></span>
+          <span>TREFILARIA SABARÁ</span>
+        </button>
+        <div class="tree-leaves" id="plantTreeAreas" hidden>
+          <button data-area="Fábrica de Barras Industriais I">FÁBRICA DE BARRAS INDUSTRIAIS I</button>
+          <button data-area="Fábrica de Barras Industriais II">FÁBRICA DE BARRAS INDUSTRIAIS II</button>
+          <button data-area="Logística Fábrica 1">LOGÍSTICA FÁBRICA 1</button>
+          <button data-area="Logística Fábrica 2">LOGÍSTICA FÁBRICA 2</button>
+          <button data-area="Gestão da Qualidade">GESTÃO DA QUALIDADE</button>
         </div>
       </div>
       <div class="tip"><span>?</span><p>Clique em um macroprocesso para navegar pelos processos e ativos relacionados.</p></div>
