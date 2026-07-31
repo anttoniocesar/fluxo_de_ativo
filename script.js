@@ -34,9 +34,9 @@ function setSidebarCollapsed(collapsed) {
 sidebarToggle.addEventListener('click', () => setSidebarCollapsed(!sidebar.classList.contains('collapsed')));
 
 plantTreeToggle.addEventListener('click', () => {
-  const expanded = plantTreeAreas.hidden;
-  plantTreeAreas.hidden = !expanded;
-  plantTreeToggle.setAttribute('aria-expanded', String(expanded));
+  const isExpanded = plantTreeAreas.hidden;
+  plantTreeAreas.hidden = !isExpanded;
+  plantTreeToggle.setAttribute('aria-expanded', String(isExpanded));
 });
 
 function showToast(message) {
