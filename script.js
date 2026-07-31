@@ -20,8 +20,6 @@ const catalog = document.querySelector('#assetCatalog');
 const toast = document.querySelector('#toast');
 const sidebar = document.querySelector('#sidebar');
 const sidebarToggle = document.querySelector('#sidebarToggle');
-const plantTreeToggle = document.querySelector('#plantTreeToggle');
-const plantTreeAreas = document.querySelector('#plantTreeAreas');
 
 function setSidebarCollapsed(collapsed) {
   sidebar.classList.toggle('collapsed', collapsed);
@@ -33,11 +31,12 @@ function setSidebarCollapsed(collapsed) {
 
 sidebarToggle.addEventListener('click', () => setSidebarCollapsed(!sidebar.classList.contains('collapsed')));
 
-plantTreeToggle.addEventListener('click', () => {
-  const isExpanded = plantTreeAreas.hidden;
-  plantTreeAreas.hidden = !isExpanded;
-  plantTreeToggle.setAttribute('aria-expanded', String(isExpanded));
-});
+document.querySelectorAll('.tree-parent').forEach(button => button.addEventListener('click', () => {
+  const leaves = document.getElementById(button.getAttribute('aria-controls'));
+  const isExpanded = leaves.hidden;
+  leaves.hidden = !isExpanded;
+  button.setAttribute('aria-expanded', String(isExpanded));
+}));
 
 function showToast(message) {
   toast.textContent = message;
@@ -60,7 +59,7 @@ function navigate(route) {
 
 document.querySelectorAll('[data-route]').forEach(item => item.addEventListener('click', event => { event.preventDefault(); navigate(item.dataset.route); }));
 document.querySelectorAll('.process-card').forEach(card => card.addEventListener('click', () => { navigate('processes'); showToast(`${card.dataset.process} selecionado`); }));
-document.querySelectorAll('[data-area]').forEach(button => button.addEventListener('click', () => { navigate('assets'); showToast(`Área selecionada: ${button.dataset.area}`); }));
+document.querySelectorAll('[data-area]').forEach(button => button.addEventListener('click', () => { navigate('assets'); showToast(`Unidade: ${button.dataset.plant} — Área: ${button.dataset.area}`); }));
 document.querySelectorAll('[data-doc]').forEach(button => button.addEventListener('click', () => { navigate('documents'); showToast(`Categoria aberta: ${button.dataset.doc}`); }));
 document.querySelectorAll('.filters button').forEach(button => button.addEventListener('click', () => { selectedFilter = button.dataset.filter; document.querySelectorAll('.filters button').forEach(item => item.classList.toggle('active', item === button)); renderAssets(); }));
 document.querySelector('#assetSearch').addEventListener('input', renderAssets);
