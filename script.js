@@ -58,6 +58,12 @@ function navigate(route) {
 }
 
 document.querySelectorAll('[data-route]').forEach(item => item.addEventListener('click', event => { event.preventDefault(); navigate(item.dataset.route); }));
+document.querySelectorAll('.flow-zone').forEach(zone => zone.addEventListener('keydown', event => {
+  if (event.key === 'Enter' || event.key === ' ') {
+    event.preventDefault();
+    zone.click();
+  }
+}));
 document.querySelectorAll('.process-card').forEach(card => card.addEventListener('click', () => { navigate('processes'); showToast(`${card.dataset.process} selecionado`); }));
 document.querySelectorAll('[data-area]').forEach(button => button.addEventListener('click', () => { navigate('assets'); showToast(`Unidade: ${button.dataset.plant} — Área: ${button.dataset.area}`); }));
 document.querySelectorAll('[data-doc]').forEach(button => button.addEventListener('click', () => { navigate('documents'); showToast(`Categoria aberta: ${button.dataset.doc}`); }));
